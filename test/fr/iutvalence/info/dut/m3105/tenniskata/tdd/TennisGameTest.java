@@ -10,8 +10,18 @@ public class TennisGameTest
 	@Test
 	public void gameStartScore()
 	{
-		TennisGame game = new TennisGame();
-		assertEquals(game.getScore(),"LOVE_ALL");
+		createGameAndTestScore(Score.LOVE_ALL);
 	}
 
+	@Test
+	public void serverScores()
+	{
+		createGameAndTestScore(Score.FIFTEEN_LOVE);
+	}
+
+	private void createGameAndTestScore(Score score) {
+		TennisGame game = new TennisGame();
+		assertEquals(game.getScore(), score);
+	}
+	
 }
